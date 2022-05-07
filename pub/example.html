@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memo</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="./documentation.css">
+    <script defer type="text/javascript" src='JS/memo.js'></script>
+	<script defer type="text/javascript" src='JS/example.js'></script>
+</head>
+<body>
+    <!-- http://127.0.0.1:5000/ -->
+    <!-- navigation bar -->
+    <div class="NavigationBar">
+        <ul class="NavigationBackground">
+            <li class="HomePageButton">
+                <a href="index.html" class="NavigationText"> Main </a>
+            </li>
+            <li class="NavigationButton">
+                <a href="documentation.html" class="NavigationText"> Documentation </a>
+            </li>
+            <li class="NavigationButton">
+                <a href="example.html" class="NavigationText"> Example </a>
+            </li>
+        </ul>
+    </div>
+    <div class="examples">
+        <h2>1. Create initial memo</h2>
+        <div class="CodeBackground2">
+            <code class="language-js">
+        		<blockquote>const example_1 = new memo();</blockquote>
+        		<blockquote> example_1.createMemo('example-1', 0, 'sample memo-0',
+                ['Row', 'Notice', 'Deadline', 'Order Adjust'], [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                </blockquote>
+        	</code>
+        </div>
+        <div id="example-1"></div>
+
+        <h2>2. Create new memo, insert data and delete row</h2>
+				<div class="CodeBackground2">
+					<code class="language-js">
+                        <blockquote>const example_2 = new memo();</blockquote>
+                        <blockquote>example_2.createMemo('example-2', 1, 'sample memo-1', ['Row', 'Notice', 'Deadline', 'Order Adjust'],
+                             [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                        </blockquote>
+                        <blockquote>example_2.insertdata([["sleep", '2019-03-10']])</blockquote>
+                        <blockquote>example_2.deleteRow(1)</blockquote>
+					</code>
+		        </div>
+        <div id="example-2"></div>
+
+        <h2>3. Create new memo, set Color of different part</h2>
+				<div class="CodeBackground2">
+					<code class="language-js">
+                        <blockquote>const example_3 = new memo();</blockquote>
+                        <blockquote>example_3.createMemo('example-3', 2, 'sample memo-2', ['Row', 'Notice', 'Deadline', 'Order Adjust'],
+                             [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                        </blockquote>
+                        <blockquote>example_3.setHeaderColor('purple');</blockquote>
+                        <blockquote>example_3.setRowColor(1,'red');</blockquote>
+                        <blockquote>example_3.setBackgroundColor('green');</blockquote>
+					</code>
+		        </div>
+        <div id="example-3"></div>
+
+        <h2>4. Create new memo, set max rows</h2>
+        <div class="CodeBackground2">
+            <code class="language-js">
+                <blockquote>const example_4 = new memo();</blockquote>
+                <blockquote>example_4.createMemo('example-4', 3, 'sample memo-3', ['Row', 'Notice', 'Deadline', 'Order Adjust'],
+                     [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                </blockquote>
+                <blockquote>example_4.setMaxRow(1)</blockquote>
+            </code>
+        </div>
+        <div id="example-4"></div>
+
+        <h2>5. Create new memo, add categories</h2>
+        <div class="CodeBackground2">
+            <code class="language-js">
+                <blockquote>const example_5 = new memo();</blockquote>
+                <blockquote>example_5.createMemo('example-5', 4, 'sample memo-4', ['Row', 'Notice', 'Deadline', 'Order Adjust'],
+                     [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                </blockquote>
+                <blockquote>example_5.addCategory('test')</blockquote>
+            </code>
+        </div>
+        <div id="example-5"></div>
+
+        <h2>6. Create new memo, delete categories</h2>
+        <div class="CodeBackground2">
+            <code class="language-js">
+                <blockquote>const example_6 = new memo();</blockquote>
+                <blockquote>example_6.createMemo('example-6', 5, 'sample memo-5', ['Row', 'Notice', 'Deadline', 'Order Adjust'],
+                     [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                </blockquote>
+                <blockquote>example_6.deleteCategory('DEADLINE')</blockquote>
+            </code>
+        </div>
+        <div id="example-6"></div>
+
+        <h2>7. Create new memo, insert data and delete rank button</h2>
+        <div class="CodeBackground2">
+            <code class="language-js">
+                <blockquote>const example_7 = new memo();</blockquote>
+                <blockquote>example_7.createMemo('example-7', 6, 'sample memo-6', ['Row', 'Notice', 'Deadline', 'Order Adjust'],
+                     [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                </blockquote>
+                <blockquote>example_7.insertdata([["drink", '2000-03-20'], ["eat", '2011-03-20'], ["sweep floor", '2011-06-17']])</blockquote>
+                <blockquote>example_7.deleteRankButton()</blockquote>
+            </code>
+        </div>
+        <div id="example-7"></div>
+
+        <h2>8. Create new memo, insert data and edit notice content</h2>
+        <div class="CodeBackground2">
+            <code class="language-js">
+                <blockquote>const example_8 = new memo();</blockquote>
+                <blockquote>eexample_8.createMemo('example-8', 7, 'sample memo-7', ['Row', 'Notice', 'Deadline', 'Order Adjust'],
+                     [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                </blockquote>
+                <blockquote>example_8.insertdata([["drink", '2000-03-20'], ["eat", '2011-03-20'], ["sweep floor", '2011-06-17']])</blockquote>
+                <blockquote>example_8.editNotice(2, 'test')</blockquote>
+            </code>
+        </div>
+        <div id="example-8"></div>
+    </div>
+</body>
+</html>

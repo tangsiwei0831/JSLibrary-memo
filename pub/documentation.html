@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Documentation</title>
+        <link rel="stylesheet" type="text/css" href="./documentation.css">
+    </head>
+
+    <body>
+
+        <!-- Navigation Bar-->
+		<div class="NavigationBar">
+			<ul class="NavigationBackground">
+				<li class="HomePageButton">
+					<a href="index.html" class="NavigationText"> Main </a>
+				</li>
+				<li class="NavigationButton">
+					<a href="documentation.html" class="NavigationText"> Documentation </a>
+				</li>
+				<li class="NavigationButton">
+					<a href="example.html" class="NavigationText"> Example </a>
+				</li>
+			</ul>
+		</div>
+
+        <!-- Title -->
+        <div class="Title">
+            <h1>Documentation</h1>
+        </div>
+
+        <div class="Content">
+
+            <h2>Getting Started</h2>
+            <p>
+                At first, you need to insert code in the <b>Head</b> part of your html file.
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>&lt;script defer type="text/javascript" src="memo.js"&gt;&lt;/script&gt;</blockquote>
+                    <blockquote>&lt;link rel="stylesheet" type="text/css" href="./style.css"&gt;&lt;/link&gt;</blockquote>
+				</code>
+                </div>
+            </p>
+            <p>
+                To create a new memo, you need to have a div tag with a unique Id in the <b>Body</b> part of your html file. <br>
+                Here is example:
+                <div class="CodeBackground">
+                <code class="language-js">
+                    <blockquote>&lt;div id="example-1"&gt;&lt;/div&gt;</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            
+            <h2>JS Object Explaination - Memo Object</h2>
+            <table class="JSObject">
+                <tbody>
+                    <tr>
+                        <th>Attribute</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Default Value</th>
+                        <th>Note</th>
+                    </tr>
+                    <tr>
+                        <td>location</td>
+                        <td>String</td>
+                        <td>The position you want to insert this memo in html</td>
+                        <td>undefined</td>
+                        <td>You must provide this attribute as a parameter in the constructor. See Example Below.</td>
+                    </tr>
+                    <tr>
+                        <td>rowNum</td>
+                        <td>Integer</td>
+                        <td>The number of rows of the memo</td>
+                        <td>0</td>
+                        <td>This attribute will calculate and update automatically.</td>
+                    </tr>
+                    <tr>
+                        <td>id</td>
+                        <td>String</td>
+                        <td>Unique id for this memo</td>
+                        <td>undefined</td>
+                        <td>You must provide this attribute as a parameter in the constructor. See Example Below.</td>
+                    </tr>
+                    <tr>
+                        <td>title</td>
+                        <td>String</td>
+                        <td>Title for this memo</td>
+                        <td>undefined</td>
+                        <td>You must provide this attribute as a parameter in the constructor. See Example Below.</td>
+                    </tr>
+                    <tr>
+                        <td>data</td>
+                        <td>Array includes Dictionary only</td>
+                        <td>The content you want to display in this memo table</td>
+                        <td>[]</td>
+                        <td>You must provide this attribute as a parameter in the constructor. See Example Below. 
+                            In addition, Dictonaries must all have the same keys and these keys must be the same as all category you provided plus "id" (unique id).</td>
+                    </tr>
+                    <tr>
+                        <td>maxRow</td>
+                        <td>Integer</td>
+                        <td>Maximun number of Rows</td>
+                        <td>-1</td>
+                        <td>You will modify this value by calling setMaximumRow()</td>
+                    </tr>
+                    <tr>
+                        <td>categories</td>
+                        <td>Array includes String only</td>
+                        <td>Categories for the memo, which decides how many columns this memo will have.</td>
+                        <td>[]</td>
+                        <td>You must provide this attribute as a parameter in the constructor. See Example Below.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Constructor</h2>
+            <h3>createMemo(location, id, title, category, data, maxRow)</h3>
+            <p>
+                This function will create a Default memo based on given parameters. <br>
+                <b>location:</b> String, the position you want to insert in html. In the previous example, "example-1" will be location <br>
+                <b>id:</b> String, unique id for this memo<br>
+                <b>title:</b> String, title for this memo<br>
+                <b>category:</b> Array includes String only, categories for the memo, which decides how many columns this memo will have<br>
+                <b>data:</b> Array includes Dictionary only which Dictonaries must all have the same keys and these keys must be the same as category plus "id" (unique id), the content you want to display in memo<br>
+                <br>
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>const example1 = new memo();</blockquote>
+					<blockquote>example_1.createMemo('example-1', 0, 'sample memo-0', ['Row', 'Notice', 'Deadline', 'Order Adjust'], 
+                        [["Need to work at 9", '2022-03-10'], ["Need to work on personal", "2003-03-11"]], 100);
+                    </code>
+                </div>
+                <br>
+            </p>
+
+            <h2>Common Methods</h2>
+            <h3>insertdata(data)</h3>
+            <p> 
+                This function will insert new Row(s) in memo based on given data. <br>
+                <b>data:</b> Array includes Dictionary only which Dictonaries must all have the same keys and these keys must be the same as category plus "id" (unique id) <br>
+                <br>
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>example_1.insertdata([["drink", '2000-03-20'], ["eat", '2011-03-20'], ["sweep floor", '2011-06-17']]);</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>deleteRow(rowNum)</h3>
+            <p>
+                This function will delete a Row in memo based on given id. <br>
+                <b>rowNum:</b> Integer,  row number in memo, which is stored in dictionary mentioned above <br>
+                <br>
+                <div class="CodeBackground">
+                <code class="language-js">
+					<blockquote>example_1.deleteRow(1);</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>deleteCategory(category)</h3>
+            <p>
+                This function will delete a Category in memo based on given name. <br>
+                <br>
+                <b>category:</b> String, the name of target Category <br>
+                <br>
+                <div class="CodeBackground">
+                <code class="language-js">
+					<blockquote>example_1.deleteCategory("DEADLINE");</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>setMaxRow(maxRow)</h3>
+            <p>
+                This function will set a limit on the maximum number of rows<br>
+                <b>maxRow:</b> Positive Integer, the maximum number of rows<br>
+                <br>
+                <div class="CodeBackground">
+                <code class="language-js">
+					<blockquote>example_1.setMaxRow(100)</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>setHeaderColor(color)</h3>
+            <p>
+                This function can change the header colour of memo based on given color.<br>
+                <b>color:</b> String, new colour (must be color).<br>
+                <br>
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>example_1.setHeaderColor("purple")</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>setRowColor(rowNum, color)</h3>
+            <p>
+                This function can change the row colour of memo based on given row number and color.<br>
+                <b>rowNum:</b> integer, row number.<br>
+                <b>color:</b> String, new colour (must be color).<br>
+                <br>
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>example_1.setRowColor(1, "blue")</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>setBackgroundColor(color)</h3>
+            <p>
+                This function can change the background colour of Table based on given color.<br>
+                <b>color:</b> String, new colour (must be color).<br>
+                <br>
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>example_1.setBackgroundColor("blue")</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>addCategory(category)</h3>
+            <p>
+                This function can cadd catgeory(uppercase) based on the given category string, insert before Order Adjust<br>
+                <b>category:</b> String, category name.<br>
+                <br>
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>example_1.addCategory("test")</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>deleteRankButton()</h3>
+            <p>
+                This function can delete the rank button<br>
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>example_1.deletRankButton()</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+
+            <h3>editNotice(rowNum, newContent)</h3>
+            <p>
+                This function can edit the notice content based on the given row number and new content<br>
+                <div class="CodeBackground2">
+                <code class="language-js">
+					<blockquote>example_1.editNotice(2, 'test')</blockquote>
+                </code>
+                </div>
+                <br>
+            </p>
+        </div>
+
+    </body>
+
+</html>
